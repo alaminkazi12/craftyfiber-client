@@ -7,6 +7,10 @@ import Shop from "../pages/Shop/Shop";
 import About from "../pages/About/About";
 import Login from "../pages/Auth/Login";
 import SignUp from "../pages/Auth/SignUp";
+import Profile from "../pages/Auth/Profile";
+import UpdateProfile from "../pages/Auth/UpdateProfile";
+import AddCraft from "../pages/AddCraft/AddCraft";
+import UpdateCraft from "../pages/UpdateCraft/UpdateCraft";
 
 const router = createBrowserRouter([
   {
@@ -37,6 +41,22 @@ const router = createBrowserRouter([
       {
         path: "/sign_up",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/profile",
+        element: <Profile></Profile>,
+      },
+      {
+        path: "/update_profile",
+        element: <UpdateProfile></UpdateProfile>,
+      },
+      {
+        path: "/addcraft",
+        element: <AddCraft></AddCraft>,
+      },
+      {
+        path: "/updatecraft",
+        element: <UpdateCraft></UpdateCraft>,
       },
     ],
   },

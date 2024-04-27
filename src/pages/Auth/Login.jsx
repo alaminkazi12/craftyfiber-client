@@ -3,9 +3,10 @@ import { FaGithub } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
+import Swal from "sweetalert2";
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { login, googleLogin, gitHubLogin } = useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
   const [signInError, setupSignInError] = useState("");
@@ -23,6 +24,13 @@ const Login = () => {
         const user = userCredential.user;
         console.log(user);
         setLoginSuccess("Logged In");
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Logged In Successfully",
+          showConfirmButton: false,
+          timer: 1500,
+        });
 
         // naviage after login
         navigate(location?.state ? location.state : "/");
@@ -35,16 +43,51 @@ const Login = () => {
       });
   };
 
+  //   google login
+
+  const GoogleLoginHandler = () => {
+    googleLogin().then(() => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Logged In Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate(location?.state ? location.state : "/");
+    });
+  };
+
+  //   github Login
+  const GitHubLoginHandler = () => {
+    gitHubLogin().then(() => {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Logged In Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      navigate(location?.state ? location.state : "/");
+    });
+  };
+
   return (
     <div className="mt-10">
       <h2 className="  lg:text-4xl font-bold text-center text-[#B08D74]">
         Login
       </h2>
       <div className="flex items-center justify-center gap-10 mt-10">
-        <button className="btn btn-circle border-2 border-gray-400 text-3xl">
+        <button
+          onClick={GoogleLoginHandler}
+          className="btn btn-circle border-2 border-gray-400 text-3xl"
+        >
           <FcGoogle />
         </button>
-        <button className="btn btn-circle border-2 border-gray-400 text-3xl">
+        <button
+          onClick={GitHubLoginHandler}
+          className="btn btn-circle border-2 border-gray-400 text-3xl"
+        >
           <FaGithub />
         </button>
       </div>

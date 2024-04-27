@@ -1,10 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import { TiThMenu } from "react-icons/ti";
-// import { useContext } from "react";
-// import { AuthContext } from "../../Context/AuthProvider";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
 
 const Navbar = () => {
-  //   const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   const links1 = (
     <>
       <li>
@@ -43,6 +43,35 @@ const Navbar = () => {
           Shop
         </NavLink>
       </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/addcraft"
+              className={({ isActive }) =>
+                isActive
+                  ? "font-bold border-2 border-[#C9B38F] rounded-xl px-5 py-2 text-[#3D5A80]"
+                  : ""
+              }
+            >
+              Add Craft
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/updatecraft"
+              className={({ isActive }) =>
+                isActive
+                  ? "font-bold border-2 border-[#C9B38F] rounded-xl px-5 py-2 text-[#3D5A80]"
+                  : ""
+              }
+            >
+              Update Craft
+            </NavLink>
+          </li>
+        </>
+      )}
+
       <li>
         <NavLink
           to="/about"
@@ -80,7 +109,7 @@ const Navbar = () => {
         <ul className="flex gap-8">{links1}</ul>
       </div>
       <div className="navbar-end">
-        {/* {user ? (
+        {user ? (
           <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
@@ -115,11 +144,7 @@ const Navbar = () => {
           <Link to="/login" className="btn ">
             Login
           </Link>
-        )} */}
-
-        <Link to="/login" className="btn ">
-          Login
-        </Link>
+        )}
       </div>
     </div>
   );

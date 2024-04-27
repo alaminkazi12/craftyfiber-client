@@ -4,8 +4,11 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInWithPopup,
   signOut,
   updateProfile,
+  GithubAuthProvider,
+  GoogleAuthProvider,
 } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 
@@ -38,6 +41,22 @@ const AuthProvider = ({ children }) => {
     });
   };
 
+  // social provider
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
+  // google login
+  const googleLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  // github login
+  const gitHubLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, githubProvider);
+  };
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -53,6 +72,8 @@ const AuthProvider = ({ children }) => {
     login,
     logOut,
     updateUserProfile,
+    googleLogin,
+    gitHubLogin,
     user,
     loeading,
   };
