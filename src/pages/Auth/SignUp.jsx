@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const SignUp = () => {
-  const { signUp, logOut } = useContext(AuthContext);
+  const { signUp, logOut, updateUserProfile } = useContext(AuthContext);
   const [show, setshow] = useState(false);
   const [signUpError, setupSignUpError] = useState("");
   const [success, setSuccess] = useState("");
@@ -52,11 +52,11 @@ const SignUp = () => {
         setSuccess("Account Created");
 
         // update profile
-        // updateUserProfile(name, photoUrl).then(() => {});
+        updateUserProfile(name, photo).then(() => {});
 
         // logout
-        // logOut();
-        // navigate("/login");
+        logOut();
+        navigate("/login");
       })
       .catch((error) => {
         const errorCode = error.code;
