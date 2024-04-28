@@ -17,7 +17,7 @@ const AuthProvider = ({ children }) => {
   // authentication handler
 
   const [user, setUser] = useState(null);
-  const [loeading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
   console.log(user);
 
   const signUp = (email, password) => {
@@ -75,7 +75,7 @@ const AuthProvider = ({ children }) => {
     googleLogin,
     gitHubLogin,
     user,
-    loeading,
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

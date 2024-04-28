@@ -70,12 +70,14 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/mycraft",
+        path: "/mycraft/:email",
         element: (
           <PrivateRouter>
             <MyCraft></MyCraft>
           </PrivateRouter>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/usercraft/${params.email}`),
       },
       {
         path: "/craft/:id",

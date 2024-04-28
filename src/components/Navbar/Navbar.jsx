@@ -59,7 +59,7 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink
-              to="/mycraft"
+              to={`/mycraft/${user?.email}`}
               className={({ isActive }) =>
                 isActive
                   ? "font-bold border-2 border-[#C9B38F] rounded-xl px-5 py-2 text-[#3D5A80]"
