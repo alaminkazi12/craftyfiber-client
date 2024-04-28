@@ -12,6 +12,7 @@ import UpdateProfile from "../pages/Auth/UpdateProfile";
 import AddCraft from "../pages/AddCraft/AddCraft";
 import UpdateCraft from "../pages/UpdateCraft/UpdateCraft";
 import CraftDetail from "../components/CraftsItem/CraftDetail";
+import PrivateRouter from "./PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -46,23 +47,43 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: <Profile></Profile>,
+        element: (
+          <PrivateRouter>
+            <Profile></Profile>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/update_profile",
-        element: <UpdateProfile></UpdateProfile>,
+        element: (
+          <PrivateRouter>
+            <UpdateProfile></UpdateProfile>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/addcraft",
-        element: <AddCraft></AddCraft>,
+        element: (
+          <PrivateRouter>
+            <AddCraft></AddCraft>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/updatecraft",
-        element: <UpdateCraft></UpdateCraft>,
+        element: (
+          <PrivateRouter>
+            <UpdateCraft></UpdateCraft>
+          </PrivateRouter>
+        ),
       },
       {
         path: "/craft/:id",
-        element: <CraftDetail></CraftDetail>,
+        element: (
+          <PrivateRouter>
+            <CraftDetail></CraftDetail>
+          </PrivateRouter>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/craft/${params.id}`),
       },
