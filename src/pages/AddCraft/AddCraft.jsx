@@ -46,10 +46,11 @@ const AddCraft = () => {
             showConfirmButton: false,
             timer: 1500,
           });
+
+          //   rest the form
+          form.reset();
         }
       });
-
-    console.log(craftItem);
   };
   return (
     <div className="mt-10">
