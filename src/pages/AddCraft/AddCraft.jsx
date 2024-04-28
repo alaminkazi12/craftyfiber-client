@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 const AddCraft = () => {
   const handleAddCraft = (e) => {
     e.preventDefault();
@@ -12,6 +13,7 @@ const AddCraft = () => {
     const name = form.name.value;
     const email = form.email.value;
     const stock = form.stock.value;
+    const short_description = form.description.value;
 
     const craftItem = {
       image,
@@ -24,7 +26,28 @@ const AddCraft = () => {
       name,
       email,
       stock,
+      short_description,
     };
+
+    fetch("http://localhost:5000/craft", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(craftItem),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            icon: "success",
+            title: "Craft Added Successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
 
     console.log(craftItem);
   };
@@ -55,6 +78,18 @@ const AddCraft = () => {
               type="text"
               placeholder="Item Name"
               name="item_name"
+              className="input input-bordered"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Short Description</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Short Description"
+              name="description"
               className="input input-bordered"
               required
             />
