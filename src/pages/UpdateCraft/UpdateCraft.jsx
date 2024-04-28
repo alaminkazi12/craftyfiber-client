@@ -1,6 +1,18 @@
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 const AddCraft = () => {
-  const handleAddCraft = (e) => {
+  const craft = useLoaderData();
+  const {
+    image,
+    Item_name,
+    price,
+    rating,
+    customization,
+    processing_time,
+    short_description,
+    _id,
+  } = craft;
+  const handleUpdateCraft = (e) => {
     e.preventDefault();
     const form = e.target;
     const image = form.image.value;
@@ -10,8 +22,6 @@ const AddCraft = () => {
     const rating = form.rating.value;
     const customization = form.customization.value;
     const processing_time = form.processing_time.value;
-    const name = form.name.value;
-    const email = form.email.value;
     const stock = form.stock.value;
     const short_description = form.description.value;
 
@@ -23,14 +33,12 @@ const AddCraft = () => {
       rating,
       customization,
       processing_time,
-      name,
-      email,
       stock,
       short_description,
     };
 
-    fetch("http://localhost:5000/craft", {
-      method: "POST",
+    fetch(`http://localhost:5000/craft/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -39,10 +47,10 @@ const AddCraft = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
             icon: "success",
-            title: "Craft Added Successfully",
+            title: "Craft Updated Successfully",
             showConfirmButton: false,
             timer: 1500,
           });
@@ -55,17 +63,17 @@ const AddCraft = () => {
   return (
     <div className="mt-10">
       <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74]">
-        Update Craft
+        Update : {Item_name}
       </h2>
       <div className="w-1/2 mx-auto bg-[#F5F5F5] border-2 border-[#C9B38F] rounded-2xl p-6 mt-10 shadow-xl">
-        <form onSubmit={handleAddCraft}>
+        <form onSubmit={handleUpdateCraft}>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Image</span>
             </label>
             <input
               type="text"
-              placeholder="Use Image Url"
+              placeholder={image}
               name="image"
               className="input input-bordered"
               required
@@ -77,7 +85,7 @@ const AddCraft = () => {
             </label>
             <input
               type="text"
-              placeholder="Item Name"
+              placeholder={Item_name}
               name="item_name"
               className="input input-bordered"
               required
@@ -89,7 +97,7 @@ const AddCraft = () => {
             </label>
             <input
               type="text"
-              placeholder="Short Description"
+              placeholder={short_description}
               name="description"
               className="input input-bordered"
               required
@@ -122,7 +130,7 @@ const AddCraft = () => {
               </label>
               <input
                 type="text"
-                placeholder="Price"
+                placeholder={price}
                 name="price"
                 className="input input-bordered"
                 required
@@ -151,7 +159,7 @@ const AddCraft = () => {
               </label>
               <input
                 type="text"
-                placeholder="yes, no"
+                placeholder={customization}
                 name="customization"
                 className="input input-bordered"
                 required
@@ -164,7 +172,7 @@ const AddCraft = () => {
             </label>
             <input
               type="text"
-              placeholder="Rating"
+              placeholder={rating}
               name="rating"
               className="input input-bordered"
               required
@@ -176,38 +184,13 @@ const AddCraft = () => {
             </label>
             <input
               type="text"
-              placeholder="Processing time"
+              placeholder={processing_time}
               name="processing_time"
               className="input input-bordered"
               required
             />
           </div>
-          <div className="flex  justify-between">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">User Email</span>
-              </label>
-              <input
-                type="email"
-                placeholder="User Email"
-                name="email"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">User Name</span>
-              </label>
-              <input
-                type="text"
-                placeholder="User Name"
-                name="name"
-                className="input input-bordered"
-                required
-              />
-            </div>
-          </div>
+
           <input
             className="w-full btn bg-[#B08D74] mt-4"
             type="submit"

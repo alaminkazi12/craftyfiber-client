@@ -3,8 +3,41 @@ import { FaRegStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
-const CraftCard = ({ craft }) => {
-  const { image, Item_name, price, rating, customization, stock } = craft;
+import Swal from "sweetalert2";
+const CraftCard = ({ craft, setCrafts, crafts }) => {
+  const { image, Item_name, price, rating, customization, stock, _id } = craft;
+  const handleDelte = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/craft/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your craft item has been deleted.",
+                icon: "success",
+              });
+              const remaining = crafts.filter((crf) => crf._id != _id);
+              setCrafts(remaining);
+            }
+          });
+
+        console.log(id);
+      }
+    });
+  };
   return (
     <div className="flex gap-10 bg-[#F5F5F5] p-6 rounded-2xl">
       <div className="w-[40%] p-4 border-2 border-[#C9B38F] rounded-2xl">
@@ -30,12 +63,12 @@ const CraftCard = ({ craft }) => {
           </ul>
         </div>
         <div className="mt-2 flex items-center gap-10">
-          <Link>
+          <Link to={`/dcraft/${_id}`}>
             <FaEdit className="text-4xl text-yellow-600" />
           </Link>
-          <Link>
+          <button onClick={() => handleDelte(_id)}>
             <MdDelete className="text-4xl text-red-600" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>
@@ -44,6 +77,8 @@ const CraftCard = ({ craft }) => {
 
 CraftCard.propTypes = {
   craft: PropTypes.object,
+  crafts: PropTypes.array,
+  setCrafts: PropTypes.func,
 };
 
 export default CraftCard;

@@ -13,6 +13,7 @@ import AddCraft from "../pages/AddCraft/AddCraft";
 import CraftDetail from "../components/CraftsItem/CraftDetail";
 import PrivateRouter from "./PrivateRouter";
 import MyCraft from "../pages/MyCraft/MyCraft";
+import UpdateCraft from "../pages/UpdateCraft/UpdateCraft";
 
 const router = createBrowserRouter([
   {
@@ -84,6 +85,16 @@ const router = createBrowserRouter([
         element: (
           <PrivateRouter>
             <CraftDetail></CraftDetail>
+          </PrivateRouter>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craft/${params.id}`),
+      },
+      {
+        path: "/dcraft/:id",
+        element: (
+          <PrivateRouter>
+            <UpdateCraft></UpdateCraft>
           </PrivateRouter>
         ),
         loader: ({ params }) =>
