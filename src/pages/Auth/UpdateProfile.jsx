@@ -2,15 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const UpdateProfile = () => {
-  const { updateUserProfile, loading } = useContext(AuthContext);
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center">
-        <span className="loading loading-spinner loading-lg text"></span>
-      </div>
-    );
-  }
+  const { updateUserProfile } = useContext(AuthContext);
 
   const handleUpdateProfile = (e) => {
     e.preventDefault();

@@ -5,6 +5,15 @@ import { useState } from "react";
 const MyCraft = () => {
   const loadedCrafts = useLoaderData();
   const [crafts, setCrafts] = useState(loadedCrafts);
+
+  if (crafts.length == 0) {
+    return (
+      <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74] mt-20">
+        No Craft Added
+      </h2>
+    );
+  }
+
   return (
     <div className="mt-10">
       <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74]">
