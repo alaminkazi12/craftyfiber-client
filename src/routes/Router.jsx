@@ -10,9 +10,9 @@ import SignUp from "../pages/Auth/SignUp";
 import Profile from "../pages/Auth/Profile";
 import UpdateProfile from "../pages/Auth/UpdateProfile";
 import AddCraft from "../pages/AddCraft/AddCraft";
-import UpdateCraft from "../pages/UpdateCraft/UpdateCraft";
 import CraftDetail from "../components/CraftsItem/CraftDetail";
 import PrivateRouter from "./PrivateRouter";
+import MyCraft from "../pages/MyCraft/MyCraft";
 
 const router = createBrowserRouter([
   {
@@ -70,10 +70,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/updatecraft",
+        path: "/mycraft",
         element: (
           <PrivateRouter>
-            <UpdateCraft></UpdateCraft>
+            <MyCraft></MyCraft>
           </PrivateRouter>
         ),
       },
