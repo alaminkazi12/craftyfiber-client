@@ -11,6 +11,7 @@ import Profile from "../pages/Auth/Profile";
 import UpdateProfile from "../pages/Auth/UpdateProfile";
 import AddCraft from "../pages/AddCraft/AddCraft";
 import UpdateCraft from "../pages/UpdateCraft/UpdateCraft";
+import CraftDetail from "../components/CraftsItem/CraftDetail";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,12 @@ const router = createBrowserRouter([
       {
         path: "/updatecraft",
         element: <UpdateCraft></UpdateCraft>,
+      },
+      {
+        path: "/craft/:id",
+        element: <CraftDetail></CraftDetail>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craft/${params.id}`),
       },
     ],
   },

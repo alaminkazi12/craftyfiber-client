@@ -1,19 +1,8 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Craft = ({ craft }) => {
-  const {
-    image,
-    Item_name,
-    category,
-    price,
-    rating,
-    customization,
-    processing_time,
-    name,
-    email,
-    stock,
-    short_description,
-  } = craft;
+  const { image, Item_name, category, price, name, stock, _id } = craft;
   return (
     <div className="p-6 border-2 border-[#C9B38F] rounded-2xl bg-[#F5F5F5]">
       <img
@@ -36,7 +25,9 @@ const Craft = ({ craft }) => {
         </p>
       </div>
       <div className="flex justify-end items-end mt-4">
-        <button className="btn bg-[#B08D74]">View Details</button>
+        <Link to={`/craft/${_id}`}>
+          <button className="btn bg-[#B08D74]">View Details</button>
+        </Link>
       </div>
     </div>
   );
