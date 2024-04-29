@@ -4,6 +4,7 @@ import CraftsItem from "../../components/CraftsItem/CraftsItem";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import CraftCategory from "../../components/CraftCategory/CraftCategory";
+import Faq from "../../components/Faq/Faq";
 
 const Home = () => {
   const loadedcrafts = useLoaderData();
@@ -22,6 +23,7 @@ const Home = () => {
       <Header></Header>
       <CraftsItem crafs={loadedcrafts}></CraftsItem>
       <CraftCategory></CraftCategory>
+      <Faq></Faq>
     </div>
   );
 };
