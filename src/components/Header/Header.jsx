@@ -1,12 +1,24 @@
+import { Cursor, useTypewriter } from "react-simple-typewriter";
+
 const Header = () => {
+  const [text] = useTypewriter({
+    words: ["CraftyFiber.com!", "Your Best Craft Parter"],
+    loop: {},
+  });
   return (
     <div className="carousel w-full mt-10 rounded-2xl">
       <div id="slide1" className="carousel-item relative w-full">
         <div className="w-full relative">
           <img src="/assets/images/s1.jpg" className="w-full opacity-75" />
           <div className="absolute inset-0 flex flex-col justify-center items-center">
-            <h1 className="text-center font-bold leading-[60px] text-[#2c1b11] text-5xl w-[70%]">
-              Welcome to CraftyFiber.com! Explore the Art of Textile Crafts.
+            <h1 className="text-center font-bold leading-[60px]  text-5xl w-[70%]">
+              Welcome to{" "}
+              <span className="text-[#0f0f0f] underline">{text}</span>{" "}
+              <span>
+                <Cursor />
+              </span>{" "}
+              <br />
+              Explore the Art of Textile Crafts.
             </h1>
           </div>
         </div>
