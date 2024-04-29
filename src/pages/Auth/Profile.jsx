@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
   return (
     <div className="mt-10">
+      <Helmet>
+        <title>Profile | CraftyFiber.com</title>
+      </Helmet>
       <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74]">
         User Profile
       </h2>

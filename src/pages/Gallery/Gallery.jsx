@@ -1,10 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import GCard from "./GCard";
+import { Helmet } from "react-helmet";
 
 const Gallery = () => {
   const crafts = useLoaderData();
   return (
     <div className="mt-14">
+      <Helmet>
+        <title>Gallery | CraftyFiber.com</title>
+      </Helmet>
       <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74]">
         All Art & Craft Collection
       </h2>

@@ -1,11 +1,15 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import CatItem from "./CatItem";
+import { Helmet } from "react-helmet";
 
 const CategoryPage = () => {
   const crafts = useLoaderData();
   const { name } = useParams();
   return (
     <div className="mt-14">
+      <Helmet>
+        <title> {name} | CraftyFiber.com</title>
+      </Helmet>
       <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74]">
         {name}
       </h2>

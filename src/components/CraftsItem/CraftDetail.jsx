@@ -16,27 +16,27 @@ const CraftDetail = () => {
   } = loadedCraft;
   return (
     <div>
-      <h2 className="text-3xl font-bold text-[#B08D74] text-center mt-14">
+      <h2 className="text-2xl md:text-3xl  font-bold text-[#B08D74] text-center mt-14 px-4">
         Detailed OverView Of {Item_name}
       </h2>
       <div className="mt-10 md:flex justify-between gap-10 rounded-2xl">
         <div className="md:w-1/2">
-          <img className="rounded-2xl" src={image} alt={Item_name} />
+          <img className="rounded-3xl p-4 md:p-0" src={image} alt={Item_name} />
         </div>
         <div className="md:w-1/2 space-y-3 p-6 border-2 rounded-2xl border-[#C9B38F]">
-          <h1 className="text-4xl text-[#835635] font-bold">
+          <h1 className="text-xl md:text-4xl text-[#835635] font-bold">
             Item Name: {Item_name}
           </h1>
           <h4 className="text-xl">
             {" "}
             <b>Category:</b> {category}
           </h4>
-          <p className="w-[80%]">
+          <p className="md:w-[80%]">
             <b>Description:</b> {short_description}
           </p>
           <p className="text-2xl font-bold text-[#B08D74]">${price}</p>
           <div className="p-6 bg-[#F5F5F5] rounded-xl border-2 border-[#C9B38F]">
-            <ul className="flex items-center gap-10 text-xl">
+            <ul className="flex items-center gap-10 text-xs md:text-xl">
               <li className="flex items-center gap-2">
                 {" "}
                 <FcRating /> {rating}
@@ -52,7 +52,7 @@ const CraftDetail = () => {
                 </span>
               </li>
             </ul>
-            <ul className="flex items-center gap-10 text-xl">
+            <ul className="flex items-center gap-10 text-xs md:text-xl">
               <li>
                 <b>Customized:</b> {customization}
               </li>

@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const UpdateProfile = () => {
   const { updateUserProfile } = useContext(AuthContext);
@@ -20,6 +21,9 @@ const UpdateProfile = () => {
 
   return (
     <div className="mt-12">
+      <Helmet>
+        <title>UpdateProfile | CraftyFiber.com</title>
+      </Helmet>
       <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74]">
         Update Profile Information
       </h2>

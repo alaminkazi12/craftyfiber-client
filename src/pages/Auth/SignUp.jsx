@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
   const { signUp, logOut, updateUserProfile } = useContext(AuthContext);
@@ -68,6 +69,9 @@ const SignUp = () => {
 
   return (
     <div className="mt-10">
+      <Helmet>
+        <title>SignUp | CraftyFiber.com</title>
+      </Helmet>
       <h2 className="lg:text-2xl font-bold text-center text-[#B08D74]">
         New to LuxeSummit.com? <br /> Quickly signup for an account now.
       </h2>

@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { login, googleLogin, gitHubLogin } = useContext(AuthContext);
@@ -74,6 +75,9 @@ const Login = () => {
 
   return (
     <div className="mt-10">
+      <Helmet>
+        <title>Login | CraftyFiber.com</title>
+      </Helmet>
       <h2 className="  lg:text-4xl font-bold text-center text-[#B08D74]">
         Login
       </h2>

@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet";
+
 const About = () => {
   return (
     <div className="mt-14">
+      <Helmet>
+        <title>About Us | CraftyFiber.com</title>
+      </Helmet>
       <h1 className="text-3xl font-bold text-[#B08D74] text-center">
         About Us
       </h1>

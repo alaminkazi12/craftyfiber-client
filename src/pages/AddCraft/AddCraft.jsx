@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
 const AddCraft = () => {
   const handleAddCraft = (e) => {
@@ -54,10 +55,13 @@ const AddCraft = () => {
   };
   return (
     <div className="mt-10">
+      <Helmet>
+        <title> Add Craft | CraftyFiber.com </title>
+      </Helmet>
       <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74]">
         Add Craft
       </h2>
-      <div className="w-1/2 mx-auto bg-[#F5F5F5] border-2 border-[#C9B38F] rounded-2xl p-6 mt-4 shadow-xl">
+      <div className="mx-6 md:w-1/2 md:mx-auto bg-[#F5F5F5] border-2 border-[#C9B38F] rounded-2xl p-6 mt-4 shadow-xl">
         <form onSubmit={handleAddCraft}>
           <div className="form-control">
             <label className="label">
@@ -96,7 +100,7 @@ const AddCraft = () => {
             />
           </div>
 
-          <div className="flex  justify-between items-center">
+          <div className="flex flex-col md:flex-row  justify-between items-center">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Sub Catagory Name</span>
@@ -129,7 +133,7 @@ const AddCraft = () => {
               />
             </div>
           </div>
-          <div className="flex justify-between gap-2 items-center">
+          <div className="flex flex-col md:flex-row justify-between gap-2 items-center">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Stock Status</span>
@@ -182,7 +186,7 @@ const AddCraft = () => {
               required
             />
           </div>
-          <div className="flex  justify-between">
+          <div className="flex flex-col md:flex-row  justify-between">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">User Email</span>

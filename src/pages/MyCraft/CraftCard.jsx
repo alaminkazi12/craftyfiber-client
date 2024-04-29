@@ -39,15 +39,17 @@ const CraftCard = ({ craft, setCrafts, crafts }) => {
     });
   };
   return (
-    <div className="flex gap-10 bg-[#F5F5F5] p-6 rounded-2xl">
-      <div className="w-[40%] p-4 border-2 border-[#C9B38F] rounded-2xl">
+    <div className="flex flex-col md:flex-row gap-10 bg-[#F5F5F5] p-6 rounded-2xl">
+      <div className="md:w-[40%] p-4 border-2 border-[#C9B38F] rounded-2xl">
         <img className="rounded-2xl" src={image} alt={Item_name} />
       </div>
-      <div className="w-[60%]">
+      <div className="md:w-[60%]">
         <div className="space-y-4">
-          <h2 className="text-2xl text-[#B08D74]">Name: {Item_name}</h2>
+          <h2 className="text-xl md:text-2xl text-[#B08D74]">
+            Name: {Item_name}
+          </h2>
           <h4 className="text-xl">Price: ${price}</h4>
-          <ul className="flex items-center gap-10 text-xl">
+          <ul className="flex items-center gap-10 text-xs md:text-xl">
             <li className="flex items-center gap-2">
               <FaRegStar />
               {rating}
@@ -62,12 +64,12 @@ const CraftCard = ({ craft, setCrafts, crafts }) => {
             </li>
           </ul>
         </div>
-        <div className="mt-2 flex items-center gap-10">
+        <div className="mt-2 flex items-center  gap-10">
           <Link to={`/dcraft/${_id}`}>
-            <FaEdit className="text-4xl text-yellow-600" />
+            <FaEdit className="text-2xl md:text-4xl text-yellow-600" />
           </Link>
           <button onClick={() => handleDelte(_id)}>
-            <MdDelete className="text-4xl text-red-600" />
+            <MdDelete className="text-2xl md:text-4xl text-red-600" />
           </button>
         </div>
       </div>

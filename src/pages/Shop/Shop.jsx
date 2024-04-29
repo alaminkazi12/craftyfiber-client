@@ -1,10 +1,14 @@
 import { useLoaderData } from "react-router-dom";
 import Craft from "../../components/CraftsItem/Craft";
+import { Helmet } from "react-helmet";
 
 const Shop = () => {
   const crafts = useLoaderData();
   return (
     <div>
+      <Helmet>
+        <title>Shop | CraftyFiber.com</title>
+      </Helmet>
       <h2 className=" mt-14 lg:text-3xl font-bold text-center text-[#B08D74]">
         Shop
       </h2>

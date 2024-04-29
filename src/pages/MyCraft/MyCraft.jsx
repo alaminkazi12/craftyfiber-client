@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import CraftCard from "./CraftCard";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const MyCraft = () => {
   const loadedCrafts = useLoaderData();
@@ -23,6 +24,9 @@ const MyCraft = () => {
 
   return (
     <div className="mt-10">
+      <Helmet>
+        <title>MyCraft | CraftyFiber.com</title>
+      </Helmet>
       <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74]">
         My Crafts Collection
       </h2>

@@ -11,7 +11,7 @@ const Header = () => {
         <div className="w-full relative">
           <img src="/assets/images/s1.jpg" className="w-full opacity-75" />
           <div className="absolute inset-0 flex flex-col justify-center items-center">
-            <h1 className="text-center font-bold leading-[60px]  text-5xl w-[70%]">
+            <h1 className="text-center font-bold md:leading-[50px] lg:leading-[60px] text-xs md:text-3xl  lg:text-5xl w-[70%]">
               Welcome to{" "}
               <span className="text-[#0f0f0f] underline">{text}</span>{" "}
               <span>
@@ -35,7 +35,7 @@ const Header = () => {
         <div className="w-full relative">
           <img src="/assets/images/s2.jpg" className="w-full opacity-75" />
           <div className="absolute inset-0 flex flex-col justify-center items-center">
-            <h1 className="text-center font-bold leading-[60px] text-[#2c1b11] text-5xl w-[70%]">
+            <h1 className="text-center font-bold md:leading-[50px] lg:leading-[60px] text-xs md:text-3xl  lg:text-5xl w-[70%]">
               Discover Handcrafted Knits for Every Season. Shop Now!
             </h1>
           </div>
@@ -53,7 +53,7 @@ const Header = () => {
         <div className="w-full relative">
           <img src="/assets/images/s3.jpg" className="w-full opacity-75" />
           <div className="absolute inset-0 flex flex-col justify-center items-center">
-            <h1 className="text-center font-bold leading-[60px] text-[#2c1b11] text-5xl w-[70%]">
+            <h1 className="text-center font-bold md:leading-[50px] lg:leading-[60px] text-xs md:text-3xl  lg:text-5xl w-[70%]">
               Wrap Yourself in Comfort and Style with Our Quilted Creations.
             </h1>
           </div>
@@ -71,7 +71,7 @@ const Header = () => {
         <div className="w-full relative">
           <img src="/assets/images/s4.jpg" className="w-full opacity-75" />
           <div className="absolute inset-0 flex flex-col justify-center items-center">
-            <h1 className="text-center font-bold leading-[60px] text-[#2c1b11] text-5xl w-[70%]">
+            <h1 className="text-center font-bold md:leading-[50px] lg:leading-[60px] text-xs md:text-3xl  lg:text-5xl w-[70%]">
               Adorn Yourself with Unique Beaded Jewelry. Find Your Statement
               Piece.
             </h1>
@@ -90,7 +90,7 @@ const Header = () => {
         <div className="w-full relative">
           <img src="/assets/images/s5.jpg" className="w-full opacity-75" />
           <div className="absolute inset-0 flex flex-col justify-center items-center">
-            <h1 className="text-center font-bold leading-[60px] text-[#2c1b11] text-5xl w-[70%]">
+            <h1 className="text-center font-bold md:leading-[50px] lg:leading-[60px] text-xs md:text-3xl  lg:text-5xl w-[70%]">
               Bring Nature Indoors with Beautiful Macrame Creations. Shop Now!
             </h1>
           </div>

@@ -1,18 +1,18 @@
 const Faq = () => {
   return (
     <div className="flex flex-col items-center justify-center mt-14">
-      <h2 className="text-3xl font-bold text-[#B08D74]">
+      <h2 className="text-xl md:text-2xl lg:text-3xl text-center font-bold text-[#B08D74]">
         Got Questions? We've Got Answers
       </h2>
-      <p className="text-gray-600 w-[60%] text-center mt-4">
+      <p className="text-gray-600 w-[90%] md:w-[60%] text-center text-xs md:text-lg  mt-4">
         Explore Our FAQ Section for Everything You Need to Know About Crafting,
         Orders, and More
       </p>
-      <div className="mt-10 flex items-center gap-10">
-        <div className="w-[50%]">
+      <div className="mt-10 flex flex-col md:flex-row items-center gap-10">
+        <div className="md:w-[50%]">
           <img src="/assets/images/faq.png" alt="faq" />
         </div>
-        <div className="w-[50%]">
+        <div className="md:w-[50%]">
           <div className="collapse collapse-plus bg-base-200">
             <input type="radio" name="my-accordion-3" defaultChecked />
             <div className="collapse-title text-xl font-medium">
