@@ -19,6 +19,19 @@ const MyCraft = () => {
       <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74]">
         My Crafts Collection
       </h2>
+      <div className="flex justify-center mt-10">
+        <details className="dropdown">
+          <summary className="m-1 btn text-xl">Sort By</summary>
+          <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+            <li>
+              <a>Yes</a>
+            </li>
+            <li>
+              <a>No</a>
+            </li>
+          </ul>
+        </details>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 mt-16 gap-4">
         {crafts.map((craft, idx) => (
           <CraftCard
