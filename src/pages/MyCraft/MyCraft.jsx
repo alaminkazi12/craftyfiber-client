@@ -28,7 +28,7 @@ const MyCraft = () => {
       </h2>
       <div className="flex justify-center mt-10">
         <details className="dropdown">
-          <summary className="m-1 btn text-xl">Sort By</summary>
+          <summary className="m-1 btn text-xl">Customization</summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
             <li onClick={() => sortBy("yes")}>
               <a>Yes</a>
