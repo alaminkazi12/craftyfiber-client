@@ -30,7 +30,7 @@ const AddCraft = () => {
       short_description,
     };
 
-    fetch("http://localhost:5000/craft", {
+    fetch("https://craftyfiber-server.vercel.app/craft", {
       method: "POST",
       headers: {
         "content-type": "application/json",

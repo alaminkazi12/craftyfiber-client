@@ -25,17 +25,17 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/craft"),
+        loader: () => fetch("https://craftyfiber-server.vercel.app/craft"),
       },
       {
         path: "/gallery",
         element: <Gallery></Gallery>,
-        loader: () => fetch("http://localhost:5000/craft/"),
+        loader: () => fetch("https://craftyfiber-server.vercel.app/craft/"),
       },
       {
         path: "/shop",
         element: <Shop></Shop>,
-        loader: () => fetch("http://localhost:5000/craft/"),
+        loader: () => fetch("https://craftyfiber-server.vercel.app/craft/"),
       },
       {
         path: "/about",
@@ -81,7 +81,9 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/usercraft/${params.email}`),
+          fetch(
+            `https://craftyfiber-server.vercel.app/usercraft/${params.email}`
+          ),
       },
       {
         path: "/craft/:id",
@@ -91,7 +93,7 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craft/${params.id}`),
+          fetch(`https://craftyfiber-server.vercel.app/craft/${params.id}`),
       },
       {
         path: "/dcraft/:id",
@@ -101,13 +103,15 @@ const router = createBrowserRouter([
           </PrivateRouter>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craft/${params.id}`),
+          fetch(`https://craftyfiber-server.vercel.app/craft/${params.id}`),
       },
       {
         path: "/category/:name",
         element: <CategoryPage></CategoryPage>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/category/${params.name}`),
+          fetch(
+            `https://craftyfiber-server.vercel.app/category/${params.name}`
+          ),
       },
     ],
   },

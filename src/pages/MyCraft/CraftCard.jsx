@@ -17,7 +17,7 @@ const CraftCard = ({ craft, setCrafts, crafts }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/craft/${id}`, {
+        fetch(`https://craftyfiber-server.vercel.app/craft/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
