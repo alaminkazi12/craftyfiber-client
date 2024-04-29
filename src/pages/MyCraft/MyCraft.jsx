@@ -6,6 +6,13 @@ const MyCraft = () => {
   const loadedCrafts = useLoaderData();
   const [crafts, setCrafts] = useState(loadedCrafts);
 
+  const sortBy = (value) => {
+    const shortedCrafts = loadedCrafts.filter(
+      (craft) => craft.customization == value
+    );
+    setCrafts(shortedCrafts);
+  };
+
   if (crafts.length == 0) {
     return (
       <h2 className="  lg:text-3xl font-bold text-center text-[#B08D74] mt-20">
@@ -23,10 +30,10 @@ const MyCraft = () => {
         <details className="dropdown">
           <summary className="m-1 btn text-xl">Sort By</summary>
           <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
-            <li>
+            <li onClick={() => sortBy("yes")}>
               <a>Yes</a>
             </li>
-            <li>
+            <li onClick={() => sortBy("no")}>
               <a>No</a>
             </li>
           </ul>
